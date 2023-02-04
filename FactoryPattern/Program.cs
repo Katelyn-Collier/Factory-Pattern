@@ -1,10 +1,23 @@
-﻿namespace FactoryPattern
+﻿
+
+namespace FactoryPattern
 {
     public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine("What type of vehicle would you like to build?");
+            string userInput = Console.ReadLine();
+
+            VehicleFactory factory = new VehicleFactory();
+            IVehicle myVehicle = VehicleFactory.CreateVehicle(userInput);
+
+            myVehicle.Drive();
+
+            Console.WriteLine("Would you like to build another vehicle?");
+            userInput = Console.ReadLine();
+
+
         }
     }
 }
